@@ -9,8 +9,20 @@ const browserSync = require("browser-sync");
 
 const htmlPath = "src/html/*.hbs";
 const svgPath = `${process.cwd()}/src/svg/`;
+let dev = true;
 
-gulp.task("html:dev", () => {
+const isDev = (dev) => {
+  if (dev) {
+    return (
+      gulp.dest("dist/dev"),
+      browserSync.stream()
+    );
+  } else {
+    return gulp.dest("dist/prod");
+  }
+};
+
+const htmlCommon = () => {
   const hbStream = hb()
     .partials("./src/html/partials/**/*.hbs")
     .helpers("./src/html/helpers/*.js")
@@ -32,7 +44,14 @@ gulp.task("html:dev", () => {
             extname: ".html",
           }),
         ))
-        .pipe(gulp.dest("dist/dev"))
-        .pipe(browserSync.stream());
+        .pipe(isDev());
     }));
+};
+
+gulp.task("html:dev", () => {
+  htmlCommon(dev);
+});
+
+gulp.task("html:prod", () => {
+  htmlCommon();
 });

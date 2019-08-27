@@ -5,8 +5,7 @@ const autoprefixer = require("gulp-autoprefixer");
 const browserSync = require("browser-sync");
 
 const cssPath = "src/css/app.scss";
-
-gulp.task("css:dev", () => {
+const cssCommon = () => {
   return gulp.src(cssPath)
     .pipe(sass({
       sourcemaps: true,
@@ -14,7 +13,16 @@ gulp.task("css:dev", () => {
         bourbon,
       ],
     }))
-    .pipe(autoprefixer())
+    .pipe(autoprefixer());
+};
+
+gulp.task("css:dev", () => {
+  cssCommon()
     .pipe(gulp.dest("dist/dev"))
     .pipe(browserSync.stream());
+});
+
+gulp.task("css:prod", () => {
+  cssCommon()
+    .pipe(gulp.dest("dist/prod"));
 });

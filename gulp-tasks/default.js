@@ -10,5 +10,11 @@ gulp.task("default", ["dev"], () => {
 });
 
 gulp.task("dev", () => {
-  runSequence("clean:dev", "css:dev", "js:dev", "assets:dev", "html:dev", "browser-sync");
+  runSequence(
+    "clean:dev",
+    "css:dev",
+    "js:dev",
+    "assets:dev",
+    "html:dev",
+    "browser-sync");
 });
