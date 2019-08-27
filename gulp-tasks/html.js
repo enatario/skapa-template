@@ -14,7 +14,7 @@ gulp.task("html:dev", () => {
   const hbStream = hb()
     .partials("./src/html/partials/**/*.hbs")
     .helpers("./src/html/helpers/*.js")
-    .data("./src/data/**/*.{js,json}")
+    .data("./src/data/files/**/*.{js,json}")
     .data({timestamp: Date.now()});
 
   return gulp.src(htmlPath)

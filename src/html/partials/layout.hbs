@@ -2,12 +2,14 @@
 <html class="" lang="en">
 
 <head>
-  {{> base/meta }}
+  {{> base/meta this}}
   {{> base/head }}
 </head>
 <body>
   <main>
+    <article>
     {{> @partial-block }}
+    </article>
   </main>
   {{> base/js }}
 </body>

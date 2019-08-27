@@ -1,0 +1,12 @@
+{{#> layout wedding}}
+  
+  {{> components/story-image }} 
+
+  {{#each copy}}
+    {{> components/story-copy }}
+    {{#each choices}}
+    {{> components/story-choices}}
+    {{/each}}
+  {{/each}}
+
+{{/layout}}
