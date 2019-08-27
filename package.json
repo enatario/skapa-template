@@ -1,0 +1,38 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@thoughtbot/eslint-config": "^0.1.0",
+    "@thoughtbot/stylelint-config": "^1.0.2",
+    "archieml": "^0.4.2",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "eslint": "^6.2.2",
+    "fs": "^0.0.1-security",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-cond": "^1.0.0",
+    "gulp-file-include": "^2.1.0",
+    "gulp-foreach": "^0.1.0",
+    "gulp-hb": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "request": "^2.88.0",
+    "require-dir": "^1.2.0",
+    "run-sequence": "^2.2.1",
+    "stylelint": "^10.1.0",
+    "webpack-stream": "^5.2.1"
+  }
+}
