@@ -1,0 +1,26 @@
+.nav__icon {
+  width: get-spacing("large");
+
+  svg {
+    @include size(100%);
+    transition: 0.25s ease fill;
+  }
+}
+
+.nav__link {
+  border: 2px solid $color-bg;
+  display: block;
+  padding: get-spacing("base");
+
+  &:hover {
+    box-shadow: $box-shadow-light;
+
+    p {
+      color: $color-text;
+    }
+
+    svg {
+      fill: $color-primary;
+    }
+  }
+}

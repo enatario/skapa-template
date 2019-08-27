@@ -1,3 +1,17 @@
-<ul>
-  <li>{{choice}}</li>
-</ul>
+<footer class="choice">
+  <h4 class="choice__hed">How many guests?</h4>
+  <p class="choice__dek">Choose wisely. The more guests, the greater the carbon footprint, although the other choices you make could mitigate the impact.</p>
+
+  <ul class="choice__list">
+    {{#each choices}}
+    <li class="choice__list-tem">
+      <button
+        class="choice__btn btn--secondary"
+        type="button" 
+      />
+        {{choice}}
+      </button>
+    </li>
+    {{/each}}
+  </ul>
+</footer>

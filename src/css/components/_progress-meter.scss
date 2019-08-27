@@ -1,0 +1,12 @@
+.progress-meter {
+  box-shadow: $box-shadow-base;
+}
+
+.progress-meter__add {
+  color: $color-primary;
+  font-size: get-font-size(160);
+}
+
+.progress-meter__total {
+  font-size: get-font-size(200);
+}

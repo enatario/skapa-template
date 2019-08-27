@@ -1,0 +1,23 @@
+.choice {
+  display: grid;
+  grid-gap: get-spacing("base");
+}
+
+.choice__hed {
+  font-family: $font-family-sans;
+}
+
+.choice__list {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  grid-gap: get-spacing("base")
+}
+
+.choice__dek {
+  font-family: $font-family-sans;
+}
+
+.choice__btn {
+  width: 100%;
+}

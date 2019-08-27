@@ -1,0 +1,112 @@
+// Bourbon settings
+$bourbon: (
+  "global-font-file-formats": ("woff2", "woff"),
+);
+
+// Directories
+$dir-font: "/assets/fonts/";
+$dir-image: "/assets/images/";
+
+// Font stacks
+$font-family-base: $font-stack-georgia;
+$font-family-hed: "Grifo", $font-family-base;
+$font-family-sans: "Moderat", $font-stack-system;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-base: 1.7;
+$line-height-tight: 1;
+
+// Font sizes
+$font-size-global: 16px;
+
+$font-size: (
+  40: rem(10px),
+  60: rem(12px),
+  80: rem(14px),
+  100: rem($font-size-global),
+  120: rem(20px),
+  140: rem(24px),
+  160: rem(28px),
+  180: rem(32px),
+  200: rem(48px)
+);
+
+@function get-font-size($size) {
+  @return map-get($font-size, $size);
+}
+
+// Spacing
+$spacing: (
+  x-small: 0.25rem,
+  small: 0.5rem,
+  base: 1rem,
+  medium: 1.5rem,
+  large: 2rem,
+  x-large: 3rem,
+  xx-large: 5rem
+);
+
+@function get-spacing($space) {
+  @return map-get($spacing, $space);
+}
+
+// Breakpoints
+$breakpoints: (
+  x-small: 25em,
+  small: 40em,
+  medium: 55em,
+  large: 65em
+);
+
+@mixin breakpoint($bp, $rule: min-width) {
+  @if map-has-key($breakpoints, $bp) {
+    @media screen and (#{$rule}: map-get($breakpoints, $bp)) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoint name `#{$bp}`.";
+  }
+}
+
+// Colors
+$color-offblack: #333;
+$color-gray: #5c5c5c;
+$color-offwhite: #fdfdfc;
+$color-white: #fff;
+$color-orangered: #e05b43;
+$color-tan: #f3f2ee;
+
+$color-text: $color-offblack;
+$color-primary: $color-orangered;
+$color-bg: $color-tan;
+
+// Borders
+$border-radius-base: 3px;
+$border-radius-circle: 50%;
+
+// Box shadow
+$box-shadow-base: 0 0 get-spacing("base") 0 rgba($color-gray, 0.5);
+$box-shadow-light: 0 0 get-spacing("small") 0 rgba($color-gray, 0.25);
+
+// Transitions
+$transition-base: 0.2s ease-in-out all;
+
+// Z-Index
+$z-index: (
+  basement: -999999,
+  layout: 1000,
+  object: 2000,
+  component: 3000,
+  subcomponent: 3010,
+  modal: 4000,
+  submodal: 4010,
+  ceiling: 999999,
+);
+
+@function get-z-index($index) {
+  @return map-get($z-index, $index);
+}
