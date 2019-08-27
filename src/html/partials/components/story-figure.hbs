@@ -1,4 +1,14 @@
 <figure class="article-grid__fig">
+  {{#if landing}}
+  {{#each stories}}
+  <picture data-nav-img="{{slug}}">
+    <source media="(min-width: 80em)" srcset="./assets/images/{{slug}}.jpg">
+    <source media="(min-width: 50em)" srcset="./assets/images/{{slug}}.jpg">
+    <source media="(min-width: 1px)" srcset="./assets/images/{{slug}}.jpg">
+    <img src="./assets/images/{{slug}}.jpg" alt="" loading="lazy">
+  </picture>
+  {{/each}}
+  {{else}}
   <picture>
     <source media="(min-width: 80em)" srcset="./assets/images/{{meta.slug}}.jpg">
     <source media="(min-width: 50em)" srcset="./assets/images/{{meta.slug}}.jpg">
@@ -7,4 +17,5 @@
   </picture>
 
   {{> components/choice-impact }}
+  {{/if}}
 </figure>

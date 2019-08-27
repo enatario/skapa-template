@@ -1,13 +1,15 @@
 <section class="article-grid__content">
+    {{#if landing}}
+    {{> components/story-copy--header}}
+    {{> components/story-copy--body}}
+    {{> components/story-nav}}
+
+    {{else}}
     {{#each copy}}
-    <header class="article-grid__hed">
-      <a href="https://expmag.com/category/tech-life/" class="btn--primary overline">Climate Change</a>
-      <h1>{{hed}}</h1>
-    </header>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis cursus pharetra fringilla. Cras elementum sed tortor quis condimentum. Vivamus posuere ex id leo ultricies mattis. Cras consectetur, nisl consequat bibendum tincidunt, orci felis laoreet leo, vel pulvinar lectus mauris quis erat.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis cursus pharetra fringilla. Cras elementum sed tortor quis condimentum. Vivamus posuere ex id leo ultricies mattis.</p>
-
+    {{> components/story-copy--header}}
+    {{> components/story-copy--body}}
     {{> components/story-choices}}
+
     {{/each}}
+    {{/if}}
   </section>
