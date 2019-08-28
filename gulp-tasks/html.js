@@ -9,20 +9,8 @@ const browserSync = require("browser-sync");
 
 const htmlPath = "src/html/*.hbs";
 const svgPath = `${process.cwd()}/src/svg/`;
-let dev = true;
 
-const isDev = (dev) => {
-  if (dev) {
-    return (
-      gulp.dest("dist/dev"),
-      browserSync.stream()
-    );
-  } else {
-    return gulp.dest("dist/prod");
-  }
-};
-
-const htmlCommon = () => {
+gulp.task("html:dev", () => {
   const hbStream = hb()
     .partials("./src/html/partials/**/*.hbs")
     .helpers("./src/html/helpers/*.js")
@@ -44,14 +32,33 @@ const htmlCommon = () => {
             extname: ".html",
           }),
         ))
-        .pipe(isDev());
+        .pipe(gulp.dest("dist/dev"))
+        .pipe(browserSync.stream());
     }));
-};
-
-gulp.task("html:dev", () => {
-  htmlCommon(dev);
 });
 
 gulp.task("html:prod", () => {
-  htmlCommon();
+  const hbStream = hb()
+    .partials("./src/html/partials/**/*.hbs")
+    .helpers("./src/html/helpers/*.js")
+    .data("./src/data/files/**/*.{js,json}")
+    .data({timestamp: Date.now()});
+
+  return gulp.src(htmlPath)
+    .pipe(hbStream)
+    .pipe(include({ basepath: svgPath }))
+    .pipe(foreach(function(stream, file) {
+      const filename = path.basename(file.path, ".hbs");
+      const isIndex = filename === "index";
+      return stream
+        .pipe(cond(isIndex,
+          rename({ extname: ".html" }),
+          rename({
+            dirname: filename + "/",
+            basename: "index",
+            extname: ".html",
+          }),
+        ))
+        .pipe(gulp.dest("dist/prod"));
+    }));
 });
