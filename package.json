@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "content": "gulp fetch:google",
     "dev": "gulp",
     "build": "gulp fetch:google && gulp prod"
   },
