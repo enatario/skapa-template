@@ -1,4 +1,9 @@
 <header class="article-grid__hed">
+  {{#unless landing}}
+  {{!-- Don't show back button on first screen of story --}}
+  <a href="#" class="btn--secondary">Back</a>
+  {{!--  --}}
+  {{/unless}}
   <a href="/" class="btn--primary overline">Climate Change</a>
   <h1>{{hed}}</h1>
 </header>

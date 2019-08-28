@@ -1,4 +1,13 @@
 <div class="progress-meter article-grid__progress">
+  {{!-- Not shown on first screen of story --}}
   <p>This choice emitted <span>5 kg</span> of carbon dioxide</p>
+  {{!--  --}}
+
+  {{!-- Always shown. On first screen the emissions will always be set to 0 kg --}}
   <p>Your total carbon emissions are <span>12 kg</span>
+  {{!--  --}}
+
+  {{!-- Only shown on last screen of story. Number of trees should align with total carbon emissions --}}
+  <p>You would need to plant <span>10 trees</span> to offset your total carbon emissions</p>
+  {{!--  --}}
 </div>

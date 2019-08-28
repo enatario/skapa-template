@@ -66,6 +66,12 @@
   }
 }
 
+.article-grid__body {
+  > * + * {
+    margin-top: get-spacing("base");
+  }
+}
+
 .article-grid__nav {
   margin-top: get-spacing("xx-large");
 }
