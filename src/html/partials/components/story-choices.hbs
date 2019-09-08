@@ -1,4 +1,4 @@
-<footer class="choice">
+<footer class="choice" data-js="choice" data-display="hidden">
   <h4 class="choice__hed">{{choice-hed}}</h4>
   <p class="choice__dek">{{choice-body}}</p>
 
@@ -6,7 +6,8 @@
     {{#each choices}}
     <li class="choice__list-item">
       <button
-        data-choice-impact="{{impact}}"
+				data-js="choice-button"
+        data-impact="{{impact}}"
         class="choice__btn btn--secondary"
         type="button">
         {{choice}}

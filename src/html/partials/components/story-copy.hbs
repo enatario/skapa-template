@@ -5,11 +5,9 @@
     {{> components/story-nav}}
 
     {{else}}
-    {{#each copy}}
-    {{> components/story-copy--header}}
-    {{> components/story-copy--body}}
+		{{> components/story-copy--header}}
+    {{#each steps}}
     {{> components/story-choices}}
-
     {{/each}}
     {{/if}}
   </section>

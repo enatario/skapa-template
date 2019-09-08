@@ -1,6 +1,15 @@
 .choice {
   display: grid;
   grid-gap: get-spacing("base");
+	
+	&[data-display="none"] {
+		display: none;
+	}
+	
+	&[data-display="grid"] {
+		display: grid;
+	}
+
 }
 
 .choice__hed {

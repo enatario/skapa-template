@@ -10,3 +10,11 @@
 .progress-meter__total {
   font-size: get-font-size(200);
 }
+
+[data-visibility="hidden"] {
+	visibility: hidden;
+}
+
+[data-visibility="visible"] {
+	visibility: visible;
+}
