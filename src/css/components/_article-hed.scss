@@ -1,0 +1,22 @@
+.article-hed__back {
+  &::before {
+    content: "➜";
+    display: inline-block;
+    margin-right: get-spacing("small");
+    transform: rotate(180deg);
+    transition: $transition-base;
+  }
+
+  &:hover::before {
+    transform: rotate(180deg) translateX(get-spacing("x-small"));
+  }
+}
+
+.article-hed__icon {
+  width: get-spacing("large");
+
+  svg {
+    fill: $color-primary;
+    @include size(100%);
+  }
+}

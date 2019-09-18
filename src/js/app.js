@@ -29,11 +29,11 @@ function toggleStep() {
   const { step, choice } = STATE;
 
   // show and hide different pieces of progress
-  $choices.attr("data-visibility", (d, i) => i === step ? "visible" : "hidden");
-  $backButton.attr("data-visibility", () => step > 0 ? "visible" : "hidden");
-  $progressChoice.attr("data-visibility", () => step > 0 ? "visible" : "hidden");
-  $progressTotal.attr("data-visibility", () => step >= 0 ? "visible" : "hidden");
-  $progressResult.attr("data-visibility", () => step === STEP_COUNT - 1 ? "visible" : "hidden");
+  $choices.attr("hidden", (d, i) => i === step ? null : true);
+  $backButton.attr("hidden", () => step > 0 ? null : true);
+  $progressChoice.attr("hidden", () => step > 0 ? null : true);
+  $progressTotal.attr("hidden", () => step >= 0 ? null : true);
+  $progressResult.attr("hidden", () => step === STEP_COUNT - 1 ? null : true);
 
   // update text of each piece of progress
   const total = d3.sum(choice);

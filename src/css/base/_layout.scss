@@ -2,6 +2,10 @@ body::after {
   z-index: get-z-index("object");
 }
 
-[data-visibility="hidden"] {
+[hidden] {
   display: none !important;
 }
+
+// [data-visibility="no-display"] {
+//   display: none !important;
+// }

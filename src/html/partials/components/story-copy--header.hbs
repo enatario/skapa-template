@@ -1,8 +1,9 @@
-<header class="article-grid__hed">
+<header class="article-grid__hed article-hed">
   {{#unless landing}}
-  {{!-- Don't show back button on first screen of story --}}
-  <button class="btn--secondary" data-js="back">Back</button>
-  {{!--  --}}
+  <button class="btn--tertiary article-hed__back" data-js="back" hidden="true">Back</button>
+  <div class="article-hed__icon">@@include("{{meta.slug}}.svg")</div>
   {{/unless}}
+  {{#if landing}}
   <a href="/" class="btn--primary overline">Climate Change</a>
+  {{/if}}
 </header>
