@@ -30,6 +30,7 @@ function toggleStep() {
 
   // show and hide different pieces of progress
   $choices.attr("data-display", (d, i) => i === step ? "grid" : "none");
+  $backButton.attr("data-visibility", () => step > 0 ? "visible" : "hidden");
   $progressChoice.attr("data-visibility", () => step > 0 ? "visible" : "hidden");
   $progressTotal.attr("data-visibility", () => step >= 0 ? "visible" : "hidden");
   $progressResult.attr("data-visibility", () => step === STEP_COUNT - 1 ? "visible" : "hidden");
@@ -64,7 +65,6 @@ function setupStory() {
   const p = window.location.pathname;
   const match = STORIES.find(s => p.includes(s));
   story = match || story;
-
   // show first step
   toggleStep();
 }
