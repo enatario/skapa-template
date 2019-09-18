@@ -9,4 +9,9 @@
     font-size: get-font-size(140);
     font-weight: $font-weight-bold;
   }
+
+  small {
+    display: block;
+    font-style: italic;
+  }
 }

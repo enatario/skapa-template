@@ -10,12 +10,14 @@ const $progressTotal = d3.select("[data-js='progress--total']");
 const $progressResult = d3.select("[data-js='progress--result']");
 const $storyCloser = d3.select("[data-js='closer']");
 const $choiceSpan = $progressChoice.select("span");
+const $choiceExtraInfo = $progressChoice.select("small");
 const $totalSpan = $progressTotal.select("span");
 const $resultSpan = $progressResult.select("span");
 
 const STATE = {
   step: 0,
   choice: [],
+  info: [],
 };
 
 const STEP_COUNT = $choices.size();
@@ -27,7 +29,7 @@ const STORIES = ["wedding", "camping", "manufacturing"];
 let story = STORIES[0]; // default to wedding
 
 function toggleStep() {
-  const { step, choice } = STATE;
+  const { step, choice, info } = STATE;
 
   // show and hide different pieces of progress
   $choices.attr("hidden", (d, i) => i === step ? null : true);
@@ -41,6 +43,7 @@ function toggleStep() {
   const total = d3.sum(choice);
   const result = total * TREE_MULTIPLIER;
   $choiceSpan.text(`${choice[choice.length - 1]} kg`);
+  $choiceExtraInfo.text(`${info[info.length - 1]}`);
   $totalSpan.text(`${total} kg`);
   $resultSpan.text(`${result} trees`);
 }
@@ -48,16 +51,19 @@ function toggleStep() {
 // events
 function handleBack() {
   STATE.choice.pop();
+  STATE.info.pop();
   STATE.step -= 1;
   STATE.step = Math.max(0 , STATE.step);
-  // console.log({STATE});
   toggleStep();
 }
 
 function handleChoice() {
   const $btn = d3.select(this);
   const impact = +$btn.attr("data-impact");
+  const info = $btn.attr("data-info");
+  console.log(info);
   STATE.choice.push(impact);
+  STATE.info.push(info);
   STATE.step += 1;
   toggleStep();
 }
