@@ -7,8 +7,9 @@
 }
 
 .article-grid__fig {
+  display: grid;
+
   @include breakpoint("small") {
-    display: grid;
     height: 0;
     position: sticky;
     top: 0;
@@ -30,6 +31,14 @@
     @include breakpoint("small") {
       height: 100vh;
     }
+  }
+}
+
+.article-grid__fig--landing {
+  grid-template-columns: repeat(3, 1fr);
+
+  @include breakpoint("small") {
+    grid-template-columns: auto;
   }
 }
 
