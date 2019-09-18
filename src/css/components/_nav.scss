@@ -1,15 +1,9 @@
-.nav__icon {
-  width: get-spacing("large");
-
-  svg {
-    @include size(100%);
-    transition: 0.25s ease fill;
-  }
-}
-
 .nav__link {
   border: 2px solid $color-bg;
-  display: block;
+  display: grid;
+  grid-column-gap: get-spacing("base");
+  grid-template-columns: min-content max-content;
+  grid-template-rows: min-content;
   padding: get-spacing("base");
 
   &:hover {
@@ -22,5 +16,16 @@
     svg {
       fill: $color-primary;
     }
+  }
+}
+
+.nav__icon {
+  align-self: start;
+  grid-row: span 3;
+  width: get-spacing("large");
+
+  svg {
+    @include size(100%);
+    transition: 0.25s ease fill;
   }
 }
