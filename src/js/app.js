@@ -8,6 +8,7 @@ const $backButton = d3.select("[data-js='back']");
 const $progressChoice = d3.select("[data-js='progress--choice']");
 const $progressTotal = d3.select("[data-js='progress--total']");
 const $progressResult = d3.select("[data-js='progress--result']");
+const $storyCloser = d3.select("[data-js='closer']");
 const $choiceSpan = $progressChoice.select("span");
 const $totalSpan = $progressTotal.select("span");
 const $resultSpan = $progressResult.select("span");
@@ -33,7 +34,8 @@ function toggleStep() {
   $backButton.attr("hidden", () => step > 0 ? null : true);
   $progressChoice.attr("hidden", () => step > 0 ? null : true);
   $progressTotal.attr("hidden", () => step >= 0 ? null : true);
-  $progressResult.attr("hidden", () => step === STEP_COUNT - 1 ? null : true);
+  $progressResult.attr("hidden", () => step === STEP_COUNT ? null : true);
+  $storyCloser.attr("hidden", () => step === STEP_COUNT ? null : true);
 
   // update text of each piece of progress
   const total = d3.sum(choice);
