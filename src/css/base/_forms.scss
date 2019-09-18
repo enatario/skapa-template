@@ -8,12 +8,13 @@ select {
   cursor: pointer;
 }
 
-legend {
-  @include hide-visually;
-}
-
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
+}
+
+[type="radio"] {
+  cursor: pointer;
+  width: max-content;
 }

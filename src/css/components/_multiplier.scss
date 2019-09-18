@@ -1,0 +1,33 @@
+.multiplier {
+  align-self: start;
+  border-bottom: $border-base;
+  display: grid;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 15rem;
+}
+
+.multiplier__legend {
+  grid-column: span 3;
+}
+
+.multiplier__title {
+  font-family: $font-family-sans;
+  font-size: get-font-size(100);
+}
+
+.multiplier__input-group {
+  align-items: center;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: get-spacing("small");
+  padding: get-spacing("small");
+
+  &:focus-within {
+    box-shadow: 0 0 0 3px $color-primary;
+  }
+
+  input:focus {
+    box-shadow: none;
+  }
+}

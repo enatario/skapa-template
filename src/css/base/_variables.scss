@@ -87,6 +87,7 @@ $color-bg: $color-tan;
 // Borders
 $border-radius-base: 3px;
 $border-radius-circle: 50%;
+$border-base: 1px solid rgba($color-gray, 0.25);
 
 // Box shadow
 $box-shadow-base: 0 0 get-spacing("base") 0 rgba($color-gray, 0.5);
