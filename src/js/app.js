@@ -29,7 +29,7 @@ function toggleStep() {
   const { step, choice } = STATE;
 
   // show and hide different pieces of progress
-  $choices.attr("data-display", (d, i) => i === step ? "grid" : "none");
+  $choices.attr("data-visibility", (d, i) => i === step ? "visible" : "hidden");
   $backButton.attr("data-visibility", () => step > 0 ? "visible" : "hidden");
   $progressChoice.attr("data-visibility", () => step > 0 ? "visible" : "hidden");
   $progressTotal.attr("data-visibility", () => step >= 0 ? "visible" : "hidden");
