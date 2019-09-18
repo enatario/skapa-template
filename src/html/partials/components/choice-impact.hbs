@@ -1,13 +1,5 @@
 <div class="progress-meter article-grid__progress">
-  {{!-- Not shown on first screen of story --}}
-  <p data-js="progress--choice" data-visibility="hidden">This choice emitted <span>0 kg</span> of carbon dioxide</p>
-  {{!--  --}}
-
-  {{!-- Always shown. On first screen the emissions will always be set to 0 kg --}}
-  <p data-js="progress--total" data-visibility="hidden">Your total carbon emissions are <span>0 kg</span>
-  {{!--  --}}
-
-  {{!-- Only shown on last screen of story. Number of trees should align with total carbon emissions --}}
-  <p data-js="progress--result" data-visibility="hidden">You would need to plant <span>0 trees</span> to offset your total carbon emissions</p>
-  {{!--  --}}
+  <p class="progress-meter__item" data-js="progress--choice" hidden="true">This choice emitted <span>0 kg</span> of carbon dioxide.</p>
+  <p class="progress-meter__item" data-js="progress--total">Your total carbon emissions are <span>0 kg</span>.</p>
+  <p class="progress-meter__item" data-js="progress--result" hidden="true">You would need to plant <span>0 trees</span> to offset your total carbon emissions.</p>
 </div>

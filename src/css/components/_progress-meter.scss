@@ -2,11 +2,11 @@
   box-shadow: $box-shadow-base;
 }
 
-.progress-meter__add {
-  color: $color-primary;
-  font-size: get-font-size(160);
-}
+.progress-meter__item {
+  font-family: $font-family-sans;
 
-.progress-meter__total {
-  font-size: get-font-size(200);
+  span {
+    font-size: get-font-size(140);
+    font-weight: $font-weight-bold;
+  }
 }
