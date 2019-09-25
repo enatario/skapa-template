@@ -46,12 +46,12 @@ function toggleStep() {
   const total = d3.sum(choice);
   const result = total * TREE_MULTIPLIER;
   const $maxImpact = d3.max(choice);
-  const $choiceBtnImpact = d3.select(`[data-impact='${$maxImpact}']`);
+  const $choiceMaxImpact = d3.select(`[data-impact='${$maxImpact}']`);
   $choiceSpan.text(`${choice[choice.length - 1]} kg`);
   $choiceExtraInfo.text(`${info[info.length - 1]}`);
   $totalSpan.text(`${total} kg`);
   $resultSpan.text(`${result} trees`);
-  $biggestImpact.text(() => step === STEP_COUNT ? $choiceBtnImpact.html() : "");
+  $biggestImpact.text(() => step === STEP_COUNT ? $choiceMaxImpact.html() : "");
 }
 
 // events

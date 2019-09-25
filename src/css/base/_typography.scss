@@ -1,5 +1,7 @@
 .callout-num {
-  font-family: $font-family-hed;
+  display: block;
+  font-family: $font-family-sans;
+  font-size: get-font-size(140);
   font-weight: $font-weight-bold;
 }
 

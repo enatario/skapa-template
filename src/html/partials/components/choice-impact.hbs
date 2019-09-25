@@ -1,7 +1,12 @@
-<div class="progress-meter article-grid__progress">  
-  <p class="progress-meter__item" data-js="progress--choice" hidden="true">This choice emitted <span>0 kg</span> of carbon dioxide.
-  <small></small>
+<div class="progress-meter article-grid__progress">
+  <div class="progress-meter__item" data-js="progress--choice" hidden="true">
+    @@include("smog.svg")
+    <p>Your last choice emitted <span class="callout-num">0 kg</span> of carbon dioxide.
+    <small></small>
   </p>
-  <p class="progress-meter__item" data-js="progress--total">Your total carbon emissions are <span>0 kg</span>.</p>
-  <p class="progress-meter__item" data-js="progress--result" hidden="true">You would need to plant <span>0 trees</span> to offset your total carbon emissions.</p>
+  </div> 
+  <div class="progress-meter__item" data-js="progress--total">
+    @@include("pollution.svg")
+    <p>Your total carbon emissions are <span class="callout-num">0 kg</span>.</p>
+  </div>
 </div>

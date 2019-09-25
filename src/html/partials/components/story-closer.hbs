@@ -1,11 +1,19 @@
-<section data-js="closer" hidden="true">
-  <p>Your biggest impact was choosing <span data-js="biggest-impact"></span></p>
-  <p>A bit of closing information goes right here just like this. Maybe some overall ideas about the impact of this particular scenario.</p>
-  <footer>
-    <nav>
-      <p>Nav to other stories or start over at current story</p>
-    </nav>
-    <p>Newsletter signup</p>
-    <p>Methodology link</p>
-  </footer>
+<section class="closer" data-js="closer" hidden="true">
+  <section class="closer__content">
+    <h1>Your results</h1>
+    <p data-js="progress--result">You would need to plant <span class="callout-num"></span> to offset your total carbon emissions.</p>
+
+    <p>Your biggest carbon impact was choosing <span class="callout-num" data-js="biggest-impact"></span></p>
+  </section>
+
+  <ul class="closer__options">
+    <li>
+      <a href="/{{meta.slug}}" class="btn--secondary">Restart this scenario</a>
+    </li>
+    <li>
+      <a href="/" class="btn--tertiary">Return to main page</a>
+    </li>
+  </ul>
+  {{> components/story-nav current=meta.slug}}
+  <p>Newsletter signup</p>
 </section>

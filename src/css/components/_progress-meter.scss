@@ -5,13 +5,17 @@
 .progress-meter__item {
   font-family: $font-family-sans;
 
-  span {
-    font-size: get-font-size(140);
-    font-weight: $font-weight-bold;
+  small {
+    background-color: $color-tan;
+    display: block;
+    font-size: get-font-size(80);
+    margin: get-spacing("small") 0;
+    padding: get-spacing("base");
   }
 
-  small {
-    display: block;
-    font-style: italic;
+  svg {
+    @include size(2rem);
+    fill: $color-gray;
+    margin: get-spacing("small") auto;
   }
 }

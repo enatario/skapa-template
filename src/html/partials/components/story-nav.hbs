@@ -1,6 +1,7 @@
 <nav class="article-grid__nav nav">
-  <p class="overline--min">Choose a climate story</a></p>
+  <p class="overline--min">Choose a{{#unless landing}}nother{{/unless}} climate story</a></p>
   <ul class="article-grid__nav-list nav__list">
+    {{#if landing}}
     {{#each stories}}
     <li class="nav__item">
       <a href="/{{slug}}" class="nav__link" data-nav-link="{{slug}}">
@@ -12,5 +13,18 @@
       </a>
     </li>
     {{/each}}
+    {{else}}
+    {{#each @root.main.stories}}
+    <li class="nav__item" {{#ifEquals ../current slug}}hidden{{/ifEquals}}>
+      <a href="/{{slug}}" class="nav__link" data-nav-link="{{slug}}">
+        <div class="nav__icon">
+          @@include("{{slug}}.svg")
+        </div>
+        <h3>{{title}}</h3>
+        <p>{{tease}}</p>
+      </a>
+    </li>
+    {{/each}}
+    {{/if}}
   </ul>
 </nav>

@@ -1,0 +1,25 @@
+.closer {
+  display: grid;
+  grid-gap: 4rem;
+}
+
+.closer__content {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: $font-family-sans;
+
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.closer__options {
+  display: grid;
+  grid-auto-flow: column;
+}

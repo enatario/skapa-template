@@ -97,6 +97,8 @@ main {
 }
 
 .article-grid__body {
+  margin-bottom: get-spacing("xx-large");
+
   h1,
   address {
     text-align: center;
@@ -107,9 +109,9 @@ main {
   }
 }
 
-.article-grid__nav {
-  margin-top: get-spacing("xx-large");
-}
+// .article-grid__nav {
+//   margin-top: get-spacing("xx-large");
+// }
 
 .overline--min {
   margin-bottom: get-spacing("base");

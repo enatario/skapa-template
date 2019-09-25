@@ -11,9 +11,7 @@
     {{/if}}
     {{#each steps}}
     {{> components/story-choices}}
-    {{#if @last}}
-    {{> components/story-closer}}
-    {{/if}}
     {{/each}}
+    {{> components/story-closer}}
     {{/if}}
   </section>
