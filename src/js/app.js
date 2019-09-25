@@ -13,6 +13,7 @@ const $choiceSpan = $progressChoice.select("span");
 const $choiceExtraInfo = $progressChoice.select("small");
 const $totalSpan = $progressTotal.select("span");
 const $resultSpan = $progressResult.select("span");
+const $biggestImpact = d3.select("[data-js='biggest-impact']");
 const $weddingMultiplier = d3.select("[data-js='progress--multiplier']");
 
 const STATE = {
@@ -44,10 +45,13 @@ function toggleStep() {
   // update text of each piece of progress
   const total = d3.sum(choice);
   const result = total * TREE_MULTIPLIER;
+  const $maxImpact = d3.max(choice);
+  const $choiceBtnImpact = d3.select(`[data-impact='${$maxImpact}']`);
   $choiceSpan.text(`${choice[choice.length - 1]} kg`);
   $choiceExtraInfo.text(`${info[info.length - 1]}`);
   $totalSpan.text(`${total} kg`);
   $resultSpan.text(`${result} trees`);
+  $biggestImpact.text(() => step === STEP_COUNT ? $choiceBtnImpact.html() : "");
 }
 
 // events
@@ -63,7 +67,6 @@ function handleChoice() {
   const $btn = d3.select(this);
   const impact = +$btn.attr("data-impact");
   const info = $btn.attr("data-info");
-  console.log(info);
   STATE.choice.push(impact);
   STATE.info.push(info);
   STATE.step += 1;
