@@ -1,14 +1,15 @@
 .multiplier {
-  align-self: start;
-  border-bottom: $border-base;
+  align-self: end;
+  box-shadow: $box-shadow-light;
   display: grid;
   justify-content: space-around;
-  margin: 0 auto;
-  max-width: 15rem;
+  margin: get-spacing("medium") auto;
+  padding: get-spacing("base");
 }
 
 .multiplier__legend {
   grid-column: span 3;
+  text-align: center;
 }
 
 .multiplier__title {

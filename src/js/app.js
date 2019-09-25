@@ -13,6 +13,7 @@ const $choiceSpan = $progressChoice.select("span");
 const $choiceExtraInfo = $progressChoice.select("small");
 const $totalSpan = $progressTotal.select("span");
 const $resultSpan = $progressResult.select("span");
+const $weddingMultiplier = d3.select("[data-js='progress--multiplier']");
 
 const STATE = {
   step: 0,
@@ -38,6 +39,7 @@ function toggleStep() {
   $progressTotal.attr("hidden", () => step >= 0 ? null : true);
   $progressResult.attr("hidden", () => step === STEP_COUNT ? null : true);
   $storyCloser.attr("hidden", () => step === STEP_COUNT ? null : true);
+  $weddingMultiplier.attr("hidden", () => step < STEP_COUNT ? null : true);
 
   // update text of each piece of progress
   const total = d3.sum(choice);

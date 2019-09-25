@@ -6,6 +6,9 @@
 
     {{else}}
 	{{> components/story-header}}
+    {{#if multiplier}}
+    {{> components/choice-multiplier}}
+    {{/if}}
     {{#each steps}}
     {{> components/story-choices}}
     {{#if @last}}

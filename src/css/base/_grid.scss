@@ -52,11 +52,11 @@ main {
 }
 
 .article-grid__progress {
+  align-items: center;
   align-self: center;
   background-color: $color-white;
   display: grid;
   grid-gap: get-spacing("large");
-  grid-template-rows: min-content;
   margin: -(get-spacing("x-large")) auto 0 auto;
   min-height: 50%;
   padding: get-spacing("base");
