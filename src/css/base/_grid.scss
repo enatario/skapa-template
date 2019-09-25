@@ -1,4 +1,6 @@
 main {
+  margin-bottom: 0;
+
   @include breakpoint("small") {
     height: 100%;
   }

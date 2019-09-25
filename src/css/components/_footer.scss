@@ -1,6 +1,17 @@
 .footer {
   background-color: $color-bg;
   padding: get-spacing("base");
+
+  @include breakpoint("small") {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-gap: get-spacing("large");
+    grid-template-areas: ". body";
+  }
+}
+
+.footer__body {
+  grid-area: body;
 }
 
 .footer__details {
