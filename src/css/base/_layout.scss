@@ -2,6 +2,14 @@ body::after {
   z-index: get-z-index("object");
 }
 
+.auto-height {
+  height: auto;
+}
+
 [hidden] {
   display: none !important;
+}
+
+summary {
+  cursor: pointer;
 }

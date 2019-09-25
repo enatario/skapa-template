@@ -5,12 +5,17 @@
   {{> base/meta this}}
   {{> base/head }}
 </head>
-<body>
+<body class="{{#if landing}}auto-height{{/if}}">
   <main>
     <article class="article-grid">
     {{> @partial-block }}
     </article>
   </main>
+
+  {{#if landing}}
+  {{> base/footer }}
+  {{/if}}
+
   {{> base/js }}
 </body>
 </html>

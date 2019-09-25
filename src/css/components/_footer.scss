@@ -1,0 +1,12 @@
+.footer {
+  background-color: $color-bg;
+  padding: get-spacing("base");
+}
+
+.footer__details {
+  summary {
+    font-family: $font-family-sans;
+    font-weight: $font-weight-bold;
+    padding: get-spacing("base") 0;
+  }
+}

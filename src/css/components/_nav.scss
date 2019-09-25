@@ -2,7 +2,7 @@
   border: 2px solid $color-bg;
   display: grid;
   grid-column-gap: get-spacing("base");
-  grid-template-columns: min-content max-content;
+  grid-template-columns: min-content auto;
   grid-template-rows: min-content;
   padding: get-spacing("base");
 

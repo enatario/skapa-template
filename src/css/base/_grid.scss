@@ -95,6 +95,11 @@ main {
 }
 
 .article-grid__body {
+  h1,
+  address {
+    text-align: center;
+  }
+
   > * + * {
     margin-top: get-spacing("base");
   }
