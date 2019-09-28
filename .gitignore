@@ -4,3 +4,6 @@ dist/
 *.sw*
 .DS_Store
 src/data/files/*.json
+
+# Local Netlify folder
+.netlify
