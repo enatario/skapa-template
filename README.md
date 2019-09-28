@@ -14,3 +14,5 @@
 Current google docs live here:
 * [Main](https://docs.google.com/document/d/1uBrTgxPiWJpRbdHhIdm0rsgbiHXi7F66rlcL8ci2G4Q/edit?usp=sharing)
 * [Wedding](https://docs.google.com/document/d/1UcKhyC5VBFqoLgGgDBZQPVqW9jEk4UTh80JOECgTSso/edit?usp=sharing)
+* [Footwear](https://docs.google.com/document/d/104Kdvl1i6oh9Glpbr6Vj-FPm0Z0ER6zzXrgHJyboMEM/edit?usp=sharing)
+* [Vacation](https://docs.google.com/document/d/1du8d6oH3skuPmYzQHMWyGfdLnSNTOgRbd8MFFuEAUFU/edit?usp=sharing)
