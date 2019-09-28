@@ -26,7 +26,7 @@ const STEP_COUNT = $choices.size();
 
 const TREE_MULTIPLIER = 10;
 
-const STORIES = ["wedding", "camping", "manufacturing"];
+const STORIES = ["wedding", "footwear", "vacation"];
 
 let story = STORIES[0]; // default to wedding
 
