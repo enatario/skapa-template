@@ -14,7 +14,7 @@ const $choiceExtraInfo = $progressChoice.select("small");
 const $totalSpan = $progressTotal.select("span");
 const $resultSpan = $progressResult.select("span");
 const $biggestImpact = d3.select("[data-js='biggest-impact']");
-const $weddingMultiplier = d3.select("[data-js='progress--multiplier']");
+const $multiplier = d3.select("[data-js='progress--multiplier']");
 
 const STATE = {
   step: 0,
@@ -22,36 +22,49 @@ const STATE = {
   info: [],
 };
 
-const STEP_COUNT = $choices.size();
-
 const TREE_MULTIPLIER = 10;
-
+const STEP_COUNT = $choices.size();
 const STORIES = ["wedding", "footwear", "vacation"];
 
 let story = STORIES[0]; // default to wedding
+let hasMult = false;
+let multiple = 1;
+
+function showElement({ sel, compare }) {
+  // show and hide different pieces of progress
+  const hidden = typeof compare === "function" ? compare : (compare ? null : true);
+  sel.attr("hidden", hidden);
+}
 
 function toggleStep() {
   const { step, choice, info } = STATE;
 
-  // show and hide different pieces of progress
-  $choices.attr("hidden", (d, i) => i === step ? null : true);
-  $backButton.attr("hidden", () => step > 0 ? null : true);
-  $progressChoice.attr("hidden", () => step > 0 ? null : true);
-  $progressTotal.attr("hidden", () => step >= 0 ? null : true);
-  $progressResult.attr("hidden", () => step === STEP_COUNT ? null : true);
-  $storyCloser.attr("hidden", () => step === STEP_COUNT ? null : true);
-  $weddingMultiplier.attr("hidden", () => step < STEP_COUNT ? null : true);
+  // reset multiple if on start screen
+  if (step === 0) {multiple = 1;}
+
+  showElement({ sel: $choices, compare: (d, i) => i === step ? null : true });
+  showElement({ sel: $backButton, compare: step > 0 });
+  showElement({ sel: $progressChoice, compare: step > (hasMult ? 1 : 0) });
+  showElement({ sel: $progressTotal, compare: step >= 0 });
+  showElement({ sel: $progressResult, compare: step === STEP_COUNT });
+  showElement({ sel: $storyCloser, compare: step === STEP_COUNT });
+  if ($multiplier) {showElement({ sel: $multiplier, compare: step > 0 });}
 
   // update text of each piece of progress
   const total = d3.sum(choice);
   const result = total * TREE_MULTIPLIER;
-  const $maxImpact = d3.max(choice);
-  const $choiceMaxImpact = d3.select(`[data-impact='${$maxImpact}']`);
-  $choiceSpan.text(`${choice[choice.length - 1]} kg`);
+  const maxImpact = d3.max(choice);
+  const $choiceImpact = d3.select(`[data-impact='${maxImpact}']`);
+  $choiceSpan.text(`${choice[choice.length - 1] * multiple} kg`);
   $choiceExtraInfo.text(`${info[info.length - 1]}`);
-  $totalSpan.text(`${total} kg`);
-  $resultSpan.text(`${result} trees`);
-  $biggestImpact.text(() => step === STEP_COUNT ? $choiceMaxImpact.html() : "");
+  $totalSpan.text(`${total * multiple} kg`);
+  $resultSpan.text(`${result * multiple} trees`);
+  $biggestImpact.text(step === STEP_COUNT ? $choiceImpact.html() : "");
+}
+
+function setMultiplier(value) {
+  $multiplier.select(`[data-mult="${value}"]`).property("checked", true);
+  multiple = +value;
 }
 
 // events
@@ -67,17 +80,33 @@ function handleChoice() {
   const $btn = d3.select(this);
   const impact = +$btn.attr("data-impact");
   const info = $btn.attr("data-info");
+  const mult = $btn.attr("data-mult");
+
+  if (mult) {setMultiplier(mult);}
+
   STATE.choice.push(impact);
   STATE.info.push(info);
   STATE.step += 1;
+
   toggleStep();
 }
 
+function handleMultiplierChange() {
+  multiple = +$multiplier.select("input:checked").node().value;
+  toggleStep();
+}
+
+
+// setup
 function setupStory() {
   // get story from url
   const p = window.location.pathname;
   const match = STORIES.find(s => p.includes(s));
   story = match || story;
+
+  // check if multiplier
+  hasMult = !!d3.select("button[data-mult]").attr("data-mult");
+
   // show first step
   toggleStep();
 }
@@ -85,6 +114,7 @@ function setupStory() {
 function setupEvents() {
   $backButton.on("click", handleBack);
   $choiceButtons.on("click", handleChoice);
+  if ($multiplier) {$multiplier.on("change", handleMultiplierChange);}
 }
 
 function init() {
@@ -96,5 +126,3 @@ function init() {
 }
 
 init();
-
-
