@@ -58,6 +58,7 @@ main {
   display: grid;
   grid-gap: get-spacing("large");
   margin: -(get-spacing("x-large")) auto 0 auto;
+  max-width: 30rem;
   min-height: 50%;
   padding: get-spacing("base");
   text-align: center;
@@ -74,6 +75,7 @@ main {
   margin: 0 auto;
   max-width: 30rem;
   padding: get-spacing("medium") get-spacing("base");
+  width: 100%;
 
   @include breakpoint("small") {
     align-items: start;
