@@ -85,16 +85,21 @@ main {
 .article-grid__hed {
   display: grid;
   grid-auto-flow: column;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
   text-align: center;
 
   .article-hed__icon {
-    grid-column: 2;
+    grid-column: 3;
+    justify-self: end;
   }
 
   .overline {
-    grid-column: span 2;
-    justify-self: center;
+    grid-column: 2;
+
+    &:only-child {
+      justify-self: center;
+    }
   }
 }
 

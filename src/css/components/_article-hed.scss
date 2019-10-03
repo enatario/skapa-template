@@ -1,4 +1,7 @@
 .article-hed__back {
+  background-color: transparent;
+  width: fit-content;
+
   &::before {
     content: "➜";
     display: inline-block;
