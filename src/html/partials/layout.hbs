@@ -3,7 +3,7 @@
 
 <head>
   {{> base/meta this}}
-  {{> base/head }}
+  {{> base/head this}}
 </head>
 <body class="{{#if landing}}auto-height{{/if}}">
   <main>
@@ -16,6 +16,6 @@
   {{> base/footer }}
   {{/if}}
 
-  {{> base/js }}
+  {{> base/js this}}
 </body>
 </html>

@@ -1,9 +1,10 @@
 <header class="article-grid__hed article-hed">
   {{#unless landing}}
   <button class="btn--tertiary article-hed__back" data-js="back" hidden="true">Back</button>
-  {{/unless}}
-  <a href="/" class="btn--primary overline">Climate Change</a>
-  {{#unless landing}}
+  <a href="../" class="btn--primary overline">Climate Change</a>
   <div class="article-hed__icon">@@include("{{meta.slug}}.svg")</div>
   {{/unless}}
+  {{#if landing}}
+  <p class="overline">Climate Change</p>
+  {{/if}}
 </header>
