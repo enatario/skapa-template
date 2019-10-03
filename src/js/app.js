@@ -32,7 +32,8 @@ let multiple = 1;
 
 function showElement({ sel, compare }) {
   // show and hide different pieces of progress
-  const hidden = typeof compare === "function" ? compare : (compare ? null : true);
+  const hidden =
+    typeof compare === "function" ? compare : compare ? null : true;
   sel.attr("hidden", hidden);
 }
 
@@ -40,15 +41,19 @@ function toggleStep() {
   const { step, choice, info } = STATE;
 
   // reset multiple if on start screen
-  if (step === 0) {multiple = 1;}
+  if (step === 0) {
+    multiple = 1;
+  }
 
-  showElement({ sel: $choices, compare: (d, i) => i === step ? null : true });
+  showElement({ sel: $choices, compare: (d, i) => (i === step ? null : true) });
   showElement({ sel: $backButton, compare: step > 0 });
   showElement({ sel: $progressChoice, compare: step > (hasMult ? 1 : 0) });
   showElement({ sel: $progressTotal, compare: step >= 0 });
   showElement({ sel: $progressResult, compare: step === STEP_COUNT });
   showElement({ sel: $storyCloser, compare: step === STEP_COUNT });
-  if ($multiplier) {showElement({ sel: $multiplier, compare: step > 0 });}
+  if ($multiplier) {
+    showElement({ sel: $multiplier, compare: step > 0 });
+  }
 
   // update text of each piece of progress
   const total = d3.sum(choice);
@@ -72,7 +77,7 @@ function handleBack() {
   STATE.choice.pop();
   STATE.info.pop();
   STATE.step -= 1;
-  STATE.step = Math.max(0 , STATE.step);
+  STATE.step = Math.max(0, STATE.step);
   toggleStep();
 }
 
@@ -82,7 +87,9 @@ function handleChoice() {
   const info = $btn.attr("data-info");
   const mult = $btn.attr("data-mult");
 
-  if (mult) {setMultiplier(mult);}
+  if (mult) {
+    setMultiplier(mult);
+  }
 
   STATE.choice.push(impact);
   STATE.info.push(info);
@@ -95,7 +102,6 @@ function handleMultiplierChange() {
   multiple = +$multiplier.select("input:checked").node().value;
   toggleStep();
 }
-
 
 // setup
 function setupStory() {
@@ -114,15 +120,21 @@ function setupStory() {
 function setupEvents() {
   $backButton.on("click", handleBack);
   $choiceButtons.on("click", handleChoice);
-  if ($multiplier) {$multiplier.on("change", handleMultiplierChange);}
+  if ($multiplier) {
+    $multiplier.on("change", handleMultiplierChange);
+  }
 }
 
 function init() {
   d3.select("html").classed("js-is-loaded", true);
   removeMobileHover();
-  navImg();
-  setupStory();
-  setupEvents();
+  const landingPage = d3.select("html").attr("data-page-landing");
+  if (landingPage == "landing") {
+    navImg();
+  } else {
+    setupStory();
+    setupEvents();
+  }
 }
 
 init();
