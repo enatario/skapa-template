@@ -6,6 +6,11 @@
   {{> base/head this}}
 </head>
 <body class="{{#if landing}}auto-height{{/if}}">
+  <header class="g-header">
+    <a href="/">
+    @@include("logo.svg")
+    </a>
+  </header>
   <main>
     <article class="article-grid">
     {{> @partial-block }}

@@ -7,6 +7,7 @@ gulp.task("default", ["dev"], () => {
   gulp.watch("src/js/**/*.js", ["js:dev"]);
   gulp.watch("src/assets/**/*", ["assets:dev"]);
   gulp.watch("src/html/**/*.hbs", ["html:dev"]);
+  gulp.watch("src/svg/*.svg", ["html:dev"]);
 });
 
 gulp.task("dev", () => {
@@ -16,5 +17,6 @@ gulp.task("dev", () => {
     "js:dev",
     "assets:dev",
     "html:dev",
-    "browser-sync");
+    "browser-sync",
+  );
 });

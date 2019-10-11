@@ -73,7 +73,6 @@ main {
   display: grid;
   grid-gap: get-spacing("base");
   margin: 0 auto;
-  max-width: 30rem;
   padding: get-spacing("medium") get-spacing("base");
   width: 100%;
 
@@ -103,22 +102,21 @@ main {
   }
 }
 
-.article-grid__body {
+.article-grid__section {
+  display: grid;
+  grid-gap: get-spacing("base");
+  justify-self: center;
+  max-width: 30rem;
+}
+
+.article-grid__intro {
   margin-bottom: get-spacing("xx-large");
 
   h1,
   address {
     text-align: center;
   }
-
-  > * + * {
-    margin-top: get-spacing("base");
-  }
 }
-
-// .article-grid__nav {
-//   margin-top: get-spacing("xx-large");
-// }
 
 .overline--min {
   margin-bottom: get-spacing("base");
