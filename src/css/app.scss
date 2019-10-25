@@ -4,13 +4,5 @@
 // Base
 @import "base/base";
 
-// Components
-@import "components/article-hed";
-@import "components/choice";
-@import "components/closer";
-@import "components/footer";
-@import "components/global-header";
-@import "components/multiplier";
-@import "components/nav";
-@import "components/newsletter";
-@import "components/progress-meter";
+// Utilities
+@import "utilities/skip-nav";

@@ -2,7 +2,7 @@ import isMobile from "./isMobile";
 
 // Inspired by: https://gist.github.com/rcmachado/7303143 and http://mvartan.com/2014/12/20/fixing-sticky-hover-on-mobile-devices/
 
-export default function removeMobileHover() {
+const removeMobileHover = () => {
   if (isMobile.any()) {
     // Loop through each stylesheet
     for (let sheetI = document.styleSheets.length - 1; sheetI >= 0; sheetI--) {
@@ -23,4 +23,6 @@ export default function removeMobileHover() {
       }
     }
   }
-}
+};
+
+export default removeMobileHover;

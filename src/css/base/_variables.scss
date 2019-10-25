@@ -1,6 +1,9 @@
 // Bourbon settings
 $bourbon: (
-  "global-font-file-formats": ("woff2", "woff"),
+  "global-font-file-formats": (
+    "woff2",
+    "woff",
+  ),
 );
 
 // Directories
@@ -8,9 +11,7 @@ $dir-font: "/assets/fonts/";
 $dir-image: "/assets/images/";
 
 // Font stacks
-$font-family-base: $font-stack-georgia;
-$font-family-hed: "Grifo", $font-family-base;
-$font-family-sans: "Moderat", $font-stack-system;
+$font-family-base: $font-stack-system;
 
 // Font weights
 $font-weight-normal: 400;
@@ -32,7 +33,7 @@ $font-size: (
   140: rem(24px),
   160: rem(28px),
   180: rem(32px),
-  200: rem(48px)
+  200: rem(48px),
 );
 
 @function get-font-size($size) {
@@ -47,7 +48,7 @@ $spacing: (
   medium: 1.5rem,
   large: 2rem,
   x-large: 3rem,
-  xx-large: 5rem
+  xx-large: 5rem,
 );
 
 @function get-spacing($space) {
@@ -59,7 +60,7 @@ $breakpoints: (
   x-small: 25em,
   small: 40em,
   medium: 55em,
-  large: 65em
+  large: 65em,
 );
 
 @mixin breakpoint($bp, $rule: min-width) {
@@ -74,24 +75,14 @@ $breakpoints: (
 
 // Colors
 $color-offblack: #333;
-$color-gray: #5c5c5c;
 $color-offwhite: #fdfdfc;
 $color-white: #fff;
-$color-orangered: #e05b43;
-$color-tan: #f3f2ee;
 
 $color-text: $color-offblack;
-$color-primary: $color-orangered;
-$color-bg: $color-tan;
 
 // Borders
 $border-radius-base: 3px;
 $border-radius-circle: 50%;
-$border-base: 1px solid rgba($color-gray, 0.25);
-
-// Box shadow
-$box-shadow-base: 0 0 get-spacing("base") 0 rgba($color-gray, 0.5);
-$box-shadow-light: 0 0 get-spacing("small") 0 rgba($color-gray, 0.25);
 
 // Transitions
 $transition-base: 0.2s ease-in-out all;

@@ -1,26 +1,18 @@
 <!doctype html>
-<html lang="en" {{#if landing}}data-page-landing="landing"{{/if}}>
-
+<html lang="en">
 <head>
   {{> base/meta this}}
-  {{> base/head this}}
+  {{> base/head }}
 </head>
-<body class="{{#if landing}}auto-height{{/if}}">
-  <header class="g-header">
-    <a href="/">
-    @@include("logo.svg")
-    </a>
+<body>
+  <header>
+    <a href="#main" class="skip-nav">Skip to main content</a>
   </header>
-  <main>
-    <article class="article-grid">
+  <main id="main">
     {{> @partial-block }}
-    </article>
   </main>
 
-  {{#if landing}}
   {{> base/footer }}
-  {{/if}}
-
-  {{> base/js this}}
+  {{> base/js }}
 </body>
 </html>

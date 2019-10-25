@@ -1,0 +1,7 @@
+.skip-nav {
+  @include hide-visually;
+
+  &:focus {
+    @include hide-visually("unhide");
+  }
+}
